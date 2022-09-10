@@ -1,13 +1,25 @@
 import React from "react";
-import { FaShoppingBag } from "react-icons/fa";
 
-const Card = () => {
+const Card = ({ price, name, is_available, detail }) => {
   return (
-    <div className="w-72 h-96">
-      <img className="rounded-lg h-64 w-72" src="https://ncrsport.com/img/storage/large/FU7337-1.jpg" alt="placeholder" />
-      <h2 className="font-semibold text-lg text-[#1B345F] pt-2">Sepatu Adidas</h2>
-      <h3 className="font-semibold text-lg text-[#1B345F] pb-2">Rp.1.750.000</h3>
-      <button className="rounded-lg font-medium text-lg w-72 h-12 bg-[#FEF3EB] text-[#F7731C]">Add to cart</button>
+    <div className="w-32 sm:w-48 md:w-72 h-auto">
+      <div onClick={detail}>
+        <img
+          className="rounded-lg w-full"
+          src="https://via.placeholder.com/500x750.png/000000/FFFFFF/%20C/O%20https://placeholder.com/?text=No+image"
+          alt="placeholder"
+        />
+        <h2 className="font-semibold text-sm md:text-base lg:text-lg text-[#1B345F] pt-2">
+          {name}
+        </h2>
+        <h3 className="font-medium text-xs md:text-sm lg:text-base text-[#1B345F] pb-2">
+          Rp.{price}
+        </h3>
+        <h3>Available: {is_available}</h3>
+      </div>
+      <button className="rounded-lg font-medium text-lg w-32 sm:w-48 md:w-72 bg-[#FEF3EB] text-[#F7731C]">
+        Add to cart
+      </button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "../images/jumbotronimg.png";
 
-const Jumbotron = () => {
+const Jumbotron = ({ scroll }) => {
   return (
     <div className="sm:px-20 pt-20 sm:flex justify-between">
       <div>
@@ -20,7 +20,10 @@ const Jumbotron = () => {
           and trends that make you look even cooler
         </p>
         <div className="flex justify-center">
-          <button className="my-5 sm:my-12 bg-[#F7731C] text-white font-semibold px-1 sm:py-3 sm:px-10 rounded-full sm:rounded-lg text-base">
+          <button
+            onClick={scroll}
+            className="my-5 sm:my-12 bg-[#F7731C] text-white font-semibold px-1 sm:py-3 sm:px-10 rounded-full sm:rounded-lg text-base"
+          >
             Explore More
           </button>
         </div>
