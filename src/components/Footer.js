@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineCopyrightCircle } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -91,6 +92,7 @@ const Footer = () => {
         <hr className="w-11/12 text-white bg-white w-52" />
       </div>
       <div className="text-white flex justify-center mt-5">
+        <AiOutlineCopyrightCircle className="text-white mt-1" />
         <p>2022 Altapedia. All rights reserved</p>
       </div>
     </div>
