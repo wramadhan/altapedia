@@ -29,10 +29,10 @@ const Home = () => {
         };
 
         axios(config)
-            .then(function (response) {
+            .then((response) => {
                 setDatas(response.data.data);
             })
-            .catch(function (error) {
+            .catch((error) => {
                 console.log(error);
             });
     }
@@ -40,12 +40,12 @@ const Home = () => {
     const prevPage = () => {
         if (page > 1) {
             setPage(page - 1)
-        }
+        };
         getData(page)
     };
 
     const nextPage = () => {
-        setPage(page + 1)
+        setPage(page + 1);
         getData(page)
     };
 
@@ -75,12 +75,12 @@ const Home = () => {
                     {datas.map((item, index) => {
                         return (
                             <div key={index}>
-                                <Card detail={(item) => handleDetailPage(item)} name={item.name} file_foto={item.file_foto} price={item.price} is_available={item.is_available} />
+                                <Card detail={() => handleDetailPage(item)} name={item.name} file_foto={item.file_foto} price={item.price} is_available={item.is_available} />
                             </div>
                         );
                     })}
                 </div>
-                <Switchpage nextPage={(value) => nextPage(value)} prevPage={(value) => prevPage(value)} page={page} />
+                <Switchpage nextPage={(page) => nextPage(page)} prevPage={(page) => prevPage(page)} page={page} />
             </div>
             <Footer />
         </>
