@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import UpdateProfile from "./pages/UpdateProfile";
 import EditProduct from "./pages/EditProduct";
 import History from "./pages/OrderHistory";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/history" element={<History />} />
+        <Route path="/orderpage" element={<OrderPage />} />
       </Routes>
     </Router>
   );
