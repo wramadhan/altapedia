@@ -32,7 +32,9 @@ const Navbar = () => {
             <GoSearch className="text-3xl text-[#F7731C]" />
           </button>
           <button>
-            <CgProfile className="text-[#999] text-4xl ml-2" />
+            <Link to="/updateprofile">
+              <CgProfile className="text-[#999] text-4xl ml-2" />
+            </Link>
           </button>
         </div>
       </div>
