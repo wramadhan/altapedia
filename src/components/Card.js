@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ price, name, is_available, detail }) => {
+const Card = ({ price, name, is_available, detail, id }) => {
   return (
     <div className="w-32 sm:w-48 md:w-72 h-auto">
       <div onClick={detail}>
@@ -17,7 +17,10 @@ const Card = ({ price, name, is_available, detail }) => {
         </h3>
         <h3>Available: {is_available}</h3>
       </div>
-      <button className="rounded-lg font-medium text-lg w-32 sm:w-48 md:w-72 bg-[#FEF3EB] text-[#F7731C]">
+      <button
+        className="rounded-lg font-medium text-lg w-32 sm:w-48 md:w-72 bg-[#FEF3EB] text-[#F7731C]"
+        onClick={id}
+      >
         Add to cart
       </button>
     </div>
