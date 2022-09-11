@@ -3,7 +3,7 @@ import Images from "../images/productclothes.png";
 
 const CardCheckout = () => {
   return (
-    <div className="w-[894px] pt-6 border-t border-[#DBE5FA] flex ">
+    <div className="w-full pt-6 border-t border-[#DBE5FA] flex ">
       <div>
         <img className="rounded-lg" src={Images} alt="Product" />
       </div>

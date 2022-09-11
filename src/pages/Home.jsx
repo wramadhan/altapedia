@@ -19,6 +19,31 @@ const Home = () => {
     }, []);
 
 
+    const addCart = (item) => {
+        var axios = require('axios');
+        var data = JSON.stringify({
+            "product_id": item.id
+        });
+
+        var config = {
+            method: 'post',
+            url: 'https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/cart',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios(config)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    };
+
     const getData = () => {
         var axios = require('axios');
 
@@ -60,7 +85,7 @@ const Home = () => {
                 name: item.name,
                 file_foto: item.file_foto,
                 price: item.price,
-                is_available: item.is_available
+                is_available: item.is_available,
             },
         });
     }
@@ -75,7 +100,7 @@ const Home = () => {
                     {datas.map((item, index) => {
                         return (
                             <div key={index}>
-                                <Card detail={() => handleDetailPage(item)} name={item.name} file_foto={item.file_foto} price={item.price} is_available={item.is_available} />
+                                <Card detail={() => handleDetailPage(item)} name={item.name} file_foto={item.file_foto} price={item.price} is_available={item.is_available} id={() => addCart(item.id)} />
                             </div>
                         );
                     })}
