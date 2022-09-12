@@ -1,0 +1,19 @@
+import React from "react";
+
+const Ordersummary = ({ totalProducts, totalPrice }) => {
+  return (
+    <div className="w-full pt-6 border-t border-[#DBE5FA] mt-6">
+      <h2 className="text-[#1B345F] mt-10 font-semibold text-lg">
+        Order Summary
+      </h2>
+      <p className="text-[#1B345F] mt-4 text-lg">Quantity: {totalProducts}</p>
+      <p className="text-[#1B345F] mt-4 text-lg">Subtotal: Rp {totalPrice}</p>
+      <p className="text-[#1B345F] mt-4 text-lg">Shipping: Free!</p>
+      <button className="bg-[#F7731C] rounded-lg mt-14 text-white font-medium text-xl w-full py-3.5">
+        Checkout Order
+      </button>
+    </div>
+  );
+};
+
+export default Ordersummary;
