@@ -1,9 +1,32 @@
-import React from 'react'
+import React from "react";
+import CardMyproduct from "../components/CardMyproduct";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { IoIosAdd, IoIosArrowRoundBack } from "react-icons/io";
 
 const MyProduct = () => {
-    return (
-        <div>MyProduct</div>
-    )
-}
+  return (
+    <div>
+      <Navbar />
+      <div className="ml-4 sm:ml-20 mb-44">
+        <h1 className="text-center mx-auto font-bold text-4xl text-[#1B345F] mt-20 mb-14">MY PRODUCT</h1>
+        <div className="mb-8">
+          <button className="bg-[#FEF3EB] px-7 py-2 rounded-lg font-medium text-[#F7731C] text-base">
+            <IoIosArrowRoundBack />
+            Back to Home
+          </button>
+        </div>
+        <div className="mb-14">
+          <button className="bg-[#F7731C] px-7 py-2 rounded-lg font-medium text-white text-base">
+            <IoIosAdd />
+            Add Product
+          </button>
+        </div>
+        <CardMyproduct />
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
-export default MyProduct
+export default MyProduct;

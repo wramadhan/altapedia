@@ -3,13 +3,13 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Image from "../images/productclothes.png";
 
-const EditProduct = () => {
+const AddProduct = () => {
   return (
     <div>
       <Navbar />
       <div className="mb-44">
-        <h1 className="text-center mx-auto font-bold text-4xl text-[#1B345F] mt-20 mb-14">EDIT MY PRODUCT</h1>
-        <div className="md:flex md:justify-around">
+        <h1 className="text-center mx-auto font-bold text-4xl text-[#1B345F] mt-20 mb-14">ADD MY PRODUCT</h1>
+        <div className="md:flex md:justify-around sm:mr-4 ">
           <div className=" mx-4">
             <h3 className="text-xl font-medium text-[#1B345F] mb-6">Product Title</h3>
             <input className="w-full h-10 sm:w-[522px] sm:h-14 border border-[#DBE5FA] rounded-lg"></input>
@@ -26,7 +26,7 @@ const EditProduct = () => {
           </div>
           <div className="ml-4">
             <h3 className="text-xl font-medium text-[#1B345F] mb-6">Product Images</h3>
-            <button>
+            <button type="file">
               <img className="md:w-[350px] w-[300px] mb-7 " src={Image} alt="product" />
             </button>
             <br />
@@ -41,4 +41,4 @@ const EditProduct = () => {
   );
 };
 
-export default EditProduct;
+export default AddProduct;
