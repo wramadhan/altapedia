@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputEditProfile = ({ name, type, placeholder, instruction }) => {
+const InputEditProfile = ({ name, type, placeholder, instruction, change }) => {
   return (
     <div className="flex">
       <label className="w-52 text-lg font-medium" to={name}>
@@ -8,6 +8,7 @@ const InputEditProfile = ({ name, type, placeholder, instruction }) => {
       </label>
       <div className="w-full">
         <input
+          onClick={change}
           className="focus:outline-none focus:border-[#F7731C] focus:bg-[#DBE5FA] focus:ring-[#F7731C] w-full rounded-md border-[#DBE5FA] border-[1px] p-4"
           type={type}
           placeholder={placeholder}
