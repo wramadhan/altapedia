@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const OrderPage = () => {
+  const [payment, setPayment] = useState('');
+  // const [fullName, setFullName] = useState('');
+  // const [phone,setPhone] = useState('');
+  // const [city,setCity] = useState('');
+  // const [province,petProvince] = useState('');
+  // const [zip,setZip] = useState('');
+
+  // const handleBuy=() => {};
+
+  // const handleCancel=() => {};
+
+  const handlePayment = (event) => {
+    setPayment(event.target.value);
+    console.log(payment);
+  };
+
   return (
     <div>
       <Navbar />
@@ -32,11 +48,11 @@ const OrderPage = () => {
         <div className="mx-10 mt-10">
           <h1 className="font-semibold mb-6 sm:text-2xl">Payment</h1>
           <form className="xl:text-lg">
-            <input type="radio"></input>
+            <input type="radio" name="payment" onClick={(value) => handlePayment(value)} value='Credit Card' />
             <label className="mr-6 ml-1 font-medium">Credit Card</label>
-            <input type="radio"></input>
+            <input type="radio" name="payment" value='Debit Card' onClick={(value) => handlePayment(value)} />
             <label className="mr-6 ml-1 font-medium">Debit Card</label>
-            <input type="radio"></input>
+            <input type="radio" name="payment" value='Cash on Delivery' onClick={(value) => handlePayment(value)} />
             <label className="mr-6 ml-1 font-medium">Cash on Delivery</label>
           </form>
         </div>
@@ -46,9 +62,9 @@ const OrderPage = () => {
           <h2 className="mb-3 font-medium">Subtotal : Rp.1.350.000</h2>
           <h2 className="mb-3 font-medium">Shipping : Free!</h2>
         </div>
-        <div className="text-end pb-10 mb-20 xl:mb-36">
-          <button className="bg-[#DBE5FA] font-medium text-[#1B345F] mr-6 px-8 py-3.5 rounded-lg m-3">Cancel Order</button>
-          <button className="bg-[#F7731C] font-medium text-white mr-6 px-11 py-3.5 rounded-lg">Buy Now</button>
+        <div className="text-center sm:text-end pb-10 mb-20 xl:mb-36">
+          <button className="bg-[#DBE5FA] font-medium text-[#1B345F] px-2 sm:px-8 py-3.5 rounded-lg m-3">Cancel Order</button>
+          <button className="bg-[#F7731C] font-medium text-white mr-6 px-4 sm:px-11 py-3.5 rounded-lg">Buy Now</button>
         </div>
       </div>
       <Footer />
