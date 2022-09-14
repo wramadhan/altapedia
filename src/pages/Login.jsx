@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import Baner from "../images/baner.jpg";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [tokenUser, setTokenUser] = useCookies();
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     postLogin();
-    let savePass = window.confirm('Are you want to save your id and password?');
-    if (savePass === true) {
-      alert('id and password saved')
-    }
+    // let savePass = window.confirm('Are you want to save your id and password?');
+    // if (savePass === true) {
+    //   alert('id and password saved')
+    // }
   };
 
   const toLogin = (item) => {
@@ -38,8 +40,9 @@ const Login = () => {
 
     axios(config)
       .then(function (response) {
-        // console.log(response.data.data);
+        // console.log(response.data.data.token);
         toLogin();
+        setTokenUser("tokenUser", response.data.data.token, { path: "/" });
       })
       .catch(function (error) {
         console.log(error);
