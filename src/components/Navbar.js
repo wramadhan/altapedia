@@ -83,8 +83,23 @@ const Navbar = () => {
               </div>
             </>
 
+
             <button>
               {/* <Link to="/updateprofile"> */}
+
+          {/* <button className="py-1 pr-2 border-y-2 border-r-2 border-[#D2DEF9] rounded-r-lg ">
+            <GoSearch className="text-3xl text-[#F7731C]" />
+          </button>
+
+          <button>
+            <Link to="/checkout">
+              <HiShoppingCart className="text-3xl mx-4 text-[#F7731C]" />
+            </Link>
+          </button>
+
+          <button>
+            <Link to="/updateprofile"> */}
+
               <CgProfile className="text-[#999] text-4xl ml-2" />
               {/* </Link> */}
             </button>

@@ -109,6 +109,7 @@ const UpdateProfile = () => {
             Save Changes
           </button>
           <button onClick={() => handleDeleteAccount()} className="bg-[#FFEBEB] text-[#FF3333] rounded-lg py-3 w-52 text-base font-medium mb-44">
+
             Delete Account
           </button>
         </div>
