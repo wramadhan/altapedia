@@ -5,7 +5,6 @@ import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import MyProduct from "./pages/MyProduct";
-import Cart from "./pages/Cart";
 import UpdateProfile from "./pages/UpdateProfile";
 import EditProduct from "./pages/EditProduct";
 import History from "./pages/OrderHistory";
@@ -24,7 +23,6 @@ function App() {
         <Route path="/myproduct" element={<MyProduct />} />
         <Route path="/myproduct/:id" element={<EditProduct />} />
         <Route path="/addproduct" element={<Addproduct />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/history" element={<History />} />
         <Route path="/orderpage" element={<OrderPage />} />

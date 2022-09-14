@@ -4,8 +4,17 @@ import { GoSearch } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
 import { HiShoppingCart } from "react-icons/hi";
 import { IoExitOutline } from "react-icons/io5";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [tokenUser, removeCookie] = useCookies();
+
+  const handleLogout = () => {
+    navigate(`/`);
+    removeCookie("tokenUser");
+  };
   return (
     <>
       <div className="bg-inherit mt-3 shadow-lg sticky sm:flex justify-between py-5 sm:px-20 text-center sm:text-left">
@@ -25,11 +34,7 @@ const Navbar = () => {
         </div>
         <div className="text-base">
           <div className="flex justify-center sm:justify-left">
-            <input
-              type="search"
-              placeholder="Cari barang..."
-              className="border-y-2 border-l-2 w-44 border-[#D2DEF9] rounded-l-lg pl-2"
-            />
+            <input type="search" placeholder="Cari barang..." className="border-y-2 border-l-2 w-44 border-[#D2DEF9] rounded-l-lg pl-2" />
 
             <button className="py-1 pr-2 border-y-2 border-r-2 border-[#D2DEF9] rounded-r-lg ">
               <GoSearch className="text-2xl text-[#F7731C]" />
@@ -45,49 +50,35 @@ const Navbar = () => {
               <div className="dropdown inline-block relative">
                 <button className="text-[#999999] font-semibold rounded inline-flex items-center">
                   <span className="mr-1"></span>
-                  <svg
-                    className="fill-current h-10"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
+                  <svg className="fill-current h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
                   </svg>
                 </button>
                 <ul className="dropdown-menu absolute hidden text-gray-700 pt-1 rounded-lg border-[1px] border-[#CCCCCC] p-2 bg-white">
                   <li className="">
-                    <Link
-                      className="rounded-t bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                      to="/updateprofile"
-                    >
+                    <Link className="rounded-t bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" to="/updateprofile">
                       My Profile
                     </Link>
                   </li>
                   <li className="">
-                    <Link
-                      className="bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                      to="/myproduct"
-                    >
+                    <Link className="bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" to="/myproduct">
                       My Product
                     </Link>
                   </li>
                   <li className="w-52">
-                    <Link
-                      className="flex rounded-b bg-white  border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                      to="/"
-                    >
+                    <button onClick={() => handleLogout()} className="flex rounded-b bg-white  border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
                       <IoExitOutline className="text-xl mt-1 mr-2" />
                       Logout
-                    </Link>
+                    </button>
                   </li>
                 </ul>
               </div>
             </>
 
-
             <button>
               {/* <Link to="/updateprofile"> */}
 
-          {/* <button className="py-1 pr-2 border-y-2 border-r-2 border-[#D2DEF9] rounded-r-lg ">
+              {/* <button className="py-1 pr-2 border-y-2 border-r-2 border-[#D2DEF9] rounded-r-lg ">
             <GoSearch className="text-3xl text-[#F7731C]" />
           </button>
 

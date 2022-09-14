@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const OrderPage = () => {
-  const [payment, setPayment] = useState('');
+  const [payment, setPayment] = useState("");
   // const [fullName, setFullName] = useState('');
   // const [phone,setPhone] = useState('');
   // const [city,setCity] = useState('');
@@ -13,6 +14,7 @@ const OrderPage = () => {
   // const handleBuy=() => {};
 
   // const handleCancel=() => {};
+  const handleBuy = () => {};
 
   const handlePayment = (event) => {
     setPayment(event.target.value);
@@ -48,11 +50,11 @@ const OrderPage = () => {
         <div className="mx-10 mt-10">
           <h1 className="font-semibold mb-6 sm:text-2xl">Payment</h1>
           <form className="xl:text-lg">
-            <input type="radio" name="payment" onClick={(value) => handlePayment(value)} value='Credit Card' />
+            <input type="radio" name="payment" onClick={(value) => handlePayment(value)} value="Credit Card" />
             <label className="mr-6 ml-1 font-medium">Credit Card</label>
-            <input type="radio" name="payment" value='Debit Card' onClick={(value) => handlePayment(value)} />
+            <input type="radio" name="payment" value="Debit Card" onClick={(value) => handlePayment(value)} />
             <label className="mr-6 ml-1 font-medium">Debit Card</label>
-            <input type="radio" name="payment" value='Cash on Delivery' onClick={(value) => handlePayment(value)} />
+            <input type="radio" name="payment" value="Cash on Delivery" onClick={(value) => handlePayment(value)} />
             <label className="mr-6 ml-1 font-medium">Cash on Delivery</label>
           </form>
         </div>
