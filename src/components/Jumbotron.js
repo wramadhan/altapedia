@@ -19,10 +19,10 @@ const Jumbotron = ({ scroll }) => {
           <br className="visible sm:invisible" />
           and trends that make you look even cooler
         </p>
-        <div className="flex justify-center">
+        <div>
           <button
             onClick={scroll}
-            className="my-5 sm:my-12 bg-[#F7731C] text-white font-semibold px-1 sm:py-3 sm:px-10 rounded-full sm:rounded-lg text-base"
+            className="my-4 sm:my-12 bg-[#F7731C] text-white font-semibold px-1 sm:py-3 sm:px-10 rounded-full sm:rounded-lg text-base"
           >
             Explore More
           </button>

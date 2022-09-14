@@ -4,12 +4,21 @@ import Footer from "../components/Footer";
 import MainProfile from "../components/MainProfile";
 import InputEditProfile from "../components/InputEditProfile";
 import DividerUpdateProfile from "../components/DividerUpdateProfile";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [retypepassword, setRetypePassword] = useState("");
+  const [tokenUser, removeCookie] = useCookies();
+
+  const handleDeleteAccount = () => {
+    navigate(`/`);
+    removeCookie("tokenUser");
+  };
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
@@ -99,7 +108,8 @@ const UpdateProfile = () => {
           >
             Save Changes
           </button>
-          <button className="bg-[#FFEBEB] text-[#FF3333] rounded-lg py-3 w-52 text-base font-medium mb-44">
+          <button onClick={() => handleDeleteAccount()} className="bg-[#FFEBEB] text-[#FF3333] rounded-lg py-3 w-52 text-base font-medium mb-44">
+
             Delete Account
           </button>
         </div>
