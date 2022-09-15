@@ -21,7 +21,7 @@ const Navbar = () => {
         <h1 className="text-[#F7731C] font-semibold text-2xl">
           Alta<span className="text-[#1B345F]">pedia</span>
         </h1>
-        <div className="sm:w-80 justify-center sm:flex mt-1 sm:text-left mx-6">
+        <div className="sm:w-90 justify-center sm:flex mt-1 sm:text-left mx-6">
           <h2 className="font-medium text-lg text-[#1B345F]">
             <Link to="/home">Home</Link>
           </h2>
@@ -34,7 +34,11 @@ const Navbar = () => {
         </div>
         <div className="text-base">
           <div className="flex justify-center sm:justify-left">
-            <input type="search" placeholder="Cari barang..." className="border-y-2 border-l-2 w-44 border-[#D2DEF9] rounded-l-lg pl-2" />
+            <input
+              type="search"
+              placeholder="Cari barang..."
+              className="border-y-2 border-l-2 w-44 border-[#D2DEF9] rounded-l-lg pl-2"
+            />
 
             <button className="py-1 pr-2 border-y-2 border-r-2 border-[#D2DEF9] rounded-r-lg ">
               <GoSearch className="text-2xl text-[#F7731C]" />
@@ -50,23 +54,36 @@ const Navbar = () => {
               <div className="dropdown inline-block relative">
                 <button className="text-[#999999] font-semibold rounded inline-flex items-center">
                   <span className="mr-1"></span>
-                  <svg className="fill-current h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <svg
+                    className="fill-current h-10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
                   </svg>
                 </button>
                 <ul className="dropdown-menu absolute hidden text-gray-700 pt-1 rounded-lg border-[1px] border-[#CCCCCC] p-2 bg-white">
                   <li className="">
-                    <Link className="rounded-t bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" to="/updateprofile">
+                    <Link
+                      className="rounded-t bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                      to="/updateprofile"
+                    >
                       My Profile
                     </Link>
                   </li>
                   <li className="">
-                    <Link className="bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" to="/myproduct">
+                    <Link
+                      className="bg-white border-b-[1px] border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                      to="/myproduct"
+                    >
                       My Product
                     </Link>
                   </li>
                   <li className="w-52">
-                    <button onClick={() => handleLogout()} className="flex rounded-b bg-white  border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                    <button
+                      onClick={() => handleLogout()}
+                      className="flex rounded-b bg-white  border-[#DBE5FA] hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    >
                       <IoExitOutline className="text-xl mt-1 mr-2" />
                       Logout
                     </button>

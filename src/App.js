@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import MyProduct from "./pages/MyProduct";
 import UpdateProfile from "./pages/UpdateProfile";
 import EditProduct from "./pages/EditProduct";
-import History from "./pages/OrderHistory";
+import OrderHistory from "./pages/OrderHistory";
 import OrderPage from "./pages/OrderPage";
 import Addproduct from "./pages/AddProduct";
 import NotFound from "./pages/NotFound";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/myproduct/:id" element={<EditProduct />} />
         <Route path="/addproduct" element={<Addproduct />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/history" element={<History />} />
+        <Route path="/history" element={<OrderHistory />} />
         <Route path="/orderpage" element={<OrderPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

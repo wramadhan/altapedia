@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const OrderPage = () => {
+  const navigate = useNavigate();
   const [payment, setPayment] = useState("");
   // const [fullName, setFullName] = useState('');
   // const [phone,setPhone] = useState('');
@@ -11,10 +12,13 @@ const OrderPage = () => {
   // const [province,petProvince] = useState('');
   // const [zip,setZip] = useState('');
 
-  // const handleBuy=() => {};
 
-  // const handleCancel=() => {};
-  const handleBuy = () => {};
+  const handleCancel = () => {
+    navigate('/history')
+  };
+  const handleBuy = () => {
+    navigate('/history')
+  };
 
   const handlePayment = (event) => {
     setPayment(event.target.value);
@@ -65,8 +69,8 @@ const OrderPage = () => {
           <h2 className="mb-3 font-medium">Shipping : Free!</h2>
         </div>
         <div className="text-center sm:text-end pb-10 mb-20 xl:mb-36">
-          <button className="bg-[#DBE5FA] font-medium text-[#1B345F] px-2 sm:px-8 py-3.5 rounded-lg m-3">Cancel Order</button>
-          <button className="bg-[#F7731C] font-medium text-white mr-6 px-4 sm:px-11 py-3.5 rounded-lg">Buy Now</button>
+          <button className="bg-[#DBE5FA] font-medium text-[#1B345F] px-2 sm:px-8 py-3.5 rounded-lg m-3" onClick={() => handleCancel()} value='Canceled'>Cancel Order</button>
+          <button className="bg-[#F7731C] font-medium text-white mr-6 px-4 sm:px-11 py-3.5 rounded-lg" onClick={() => handleBuy()} value='Success'>Buy Now</button>
         </div>
       </div>
       <Footer />
