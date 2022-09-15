@@ -8,23 +8,26 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = () => {
+  const toLogin = () => {
     handleRegist();
     alert('Register successfully');
-    toLogin();
   };
 
-  const toLogin = () => {
+  const handleRegist = () => {
     navigate(`/`);
   }
 
-  const handleRegist = () => {
+  const handleRegister = () => {
     var axios = require('axios');
-    var data = `{\r\n  "name": ${name},\r\n  "email": ${email},\r\n  "password": ${password},\r\n}`;
+    var data = JSON.stringify({
+      "username": name,
+      "email": email,
+      "password": password
+    });
 
     var config = {
       method: 'post',
-      url: 'https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/register',
+      url: 'http://35.162.202.237:80/register',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -32,10 +35,11 @@ const Register = () => {
     };
 
     axios(config)
-      .then((response) => {
-        console.log(response.data.message);
+      .then(function (response) {
+        console.log(response.data);
+        toLogin();
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
       });
 
