@@ -10,6 +10,7 @@ import EditProduct from "./pages/EditProduct";
 import History from "./pages/OrderHistory";
 import OrderPage from "./pages/OrderPage";
 import Addproduct from "./pages/AddProduct";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/history" element={<History />} />
         <Route path="/orderpage" element={<OrderPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
