@@ -13,7 +13,7 @@ const NotFound = () => {
             <p className='text-5xl font-semibold text-center'>Yo ndak tau kok tanya saya</p>
             <p className='text-center italic text-3xl'>404 not found</p>
             <div className='w-full flex justify-center hidden'>
-                <ReactAudioPlayer src={soundfile} loop={true} volume={0.3} autoPlay={true} controls type="audio/ogg/mpeg" />
+                <ReactAudioPlayer src={soundfile} loop={true} volume={0.7} autoPlay={true} controls type="audio/ogg/mpeg" />
             </div>
         </>
     )
