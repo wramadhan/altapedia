@@ -9,5 +9,6 @@
     <li><button><b><a href='https://www.npmjs.com/package/axios'>Axios</a></b></button></li>
     <li><button><b><a href='https://www.npmjs.com/package/react-cookie'>React Cookie</a></b></button></li>
     <li><button><b><a href='https://www.npmjs.com/package/react-audio-player'>React Audio Player</a></b></button></li>
+    <li><button><b><a href='https://www.npmjs.com/package/react-redux'>React Redux</a></b></button></li>
 </ol><br/>
 <h2>Sekian Terimakasih</h2>
