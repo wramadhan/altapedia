@@ -11,12 +11,12 @@ const CardCheckout = ({ name, price, foto, remove }) => {
       <div className="sm:ml-6 flex justify-between w-full">
         <div className="text-[#1B345F]">
           <h4 className="text-lg font-semibold">{name}</h4>
-          <h4 className="text-base">Rp {price}</h4>
+          <h4 className="text-base font-medium">Rp {price}</h4>
           <div className="flex mt-14">
             <button>
               <AiFillMinusCircle className="mr-3.5 rounded-full bg-[#F7731C] text-2xl text-[#FEF3EB] mt-1" />
             </button>
-            <p className="text-base w-auto text-center text-xl">1</p>
+            <p className="text-lg font-medium w-auto text-center">1</p>
             <button>
               <AiFillPlusCircle className="text-[#F7731C] text-2xl mt-1 ml-3.5" />
             </button>

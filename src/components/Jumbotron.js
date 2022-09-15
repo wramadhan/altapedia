@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../images/jumbotronimg.png";
+import Image from "../images/jumbo-img.png";
 
 const Jumbotron = ({ scroll }) => {
   return (
@@ -7,7 +7,7 @@ const Jumbotron = ({ scroll }) => {
       <div>
         <h1 className="text-[#F7731C] font-bold text-3xl mb-5 md:text-4xl text-center sm:text-left sm:pt-20">
           Everyone’s<span> </span>
-          <span className="sm:hidden text-[#1B345F] font-bold text-3xl mb-5 text-center">
+          <span className="sm:hidden text-[#1B345F] font-bold text-3xl mb-5  text-center">
             Collections <span className="text-[#F7731C]">and</span> Style
           </span>
         </h1>
@@ -29,7 +29,7 @@ const Jumbotron = ({ scroll }) => {
         </div>
       </div>
       <div>
-        <div className="mt-10 flex justify-center">
+        <div className="mt-4 mr-12 flex justify-center">
           <img
             className=" w-1/2 sm:w-56 md:w-80 lg:w-96"
             src={Image}

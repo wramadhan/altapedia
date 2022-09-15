@@ -65,8 +65,8 @@ const OrderPage = () => {
         <div className="mx-10 mt-10 xl:text-lg ">
           <h1 className="font-semibold mb-6 sm:text-2xl">Order Sumary</h1>
           <h2 className="mb-3 font-medium">Quantity : 3</h2>
+          <h2 className="mb-3 font-medium">Shipping : <span className="text-[#]">Free!</span></h2>
           <h2 className="mb-3 font-medium">Subtotal : Rp.1.350.000</h2>
-          <h2 className="mb-3 font-medium">Shipping : Free!</h2>
         </div>
         <div className="text-center sm:text-end pb-10 mb-20 xl:mb-36">
           <button className="bg-[#DBE5FA] font-medium text-[#1B345F] px-2 sm:px-8 py-3.5 rounded-lg m-3" onClick={() => handleCancel()} value='Canceled'>Cancel Order</button>

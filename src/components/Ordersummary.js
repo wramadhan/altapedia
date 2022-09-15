@@ -17,7 +17,7 @@ const Ordersummary = ({ totalProducts, totalPrice, toCheckoutPage }) => {
       </p>
       <button
         onClick={toCheckoutPage}
-        className="bg-[#F7731C] rounded-lg mt-14 text-white font-medium text-xl w-full py-3.5"
+        className="bg-[#F7731C] rounded-lg mt-14 text-white font-base text-lg w-full py-3.5"
       >
         Checkout Order
       </button>

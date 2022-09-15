@@ -13,7 +13,7 @@ const Footer = () => {
                 Alta<span className="text-[#F0F4FD]">pedia</span>
               </h1>
             </Link>
-            <h2 className="text-[#F0F4FD] font-medium text-xs">
+            <h2 className="text-[#F0F4FD] font-sm text-xs">
               Making the the fashion better
             </h2>
             <h2 className="text-[#F0F4FD] font-medium text-xs">than before.</h2>
@@ -88,10 +88,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center pt-20">
-        <hr className="w-11/12 text-white bg-white w-52" />
+      <div className="w-full flex justify-center pt-20">
+        <hr className="w-11/12 text-white bg-white" />
       </div>
-      <div className="text-white flex justify-center mt-5">
+      <div className="text-white flex justify-center mt-5 text-sm">
         <AiOutlineCopyrightCircle className="text-white mt-1 mx-1" />
         <p>2022 Altapedia. All rights reserved</p>
       </div>
