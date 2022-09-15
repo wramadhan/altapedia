@@ -16,25 +16,25 @@ const Checkout = () => {
   }, []);
 
   const toCheckoutPage = (value) => {
-    navigate('/orderpage')
+    navigate("/orderpage");
   };
 
   const getCartList = () => {
-    var axios = require('axios');
+    var axios = require("axios");
 
     var config = {
-      method: 'get',
-      url: 'https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/cart',
-      headers: {}
+      method: "get",
+      url: "https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/cart",
+      headers: {},
     };
 
     axios(config)
       .then(function (response) {
         setTotalProducts(response.data.data.length);
         response.data.data.map((item) => {
-          return (setTotalPrice(totalPrice + item.price));
-        })
-        setListProducts(response.data.data)
+          return setTotalPrice(totalPrice + item.price);
+        });
+        setListProducts(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -42,12 +42,14 @@ const Checkout = () => {
   };
 
   const handleDeleteProduct = (item) => {
-    var axios = require('axios');
+    var axios = require("axios");
 
     var config = {
-      method: 'delete',
-      url: 'https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/cart/' + item.id,
-      headers: {}
+      method: "delete",
+      url:
+        "https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/cart/" +
+        item.id,
+      headers: {},
     };
 
     axios(config)
@@ -57,24 +59,34 @@ const Checkout = () => {
       .catch(function (error) {
         console.log(error);
       });
-
-  }
+  };
 
   return (
     <div>
       <Navbar />
-      <h1 className="text-4xl mt-20 mb-14 font-bold text-[#1B345F] text-center">Shopping Cart Detail</h1>
+      <h1 className="text-4xl mt-20 mb-14 font-bold text-[#1B345F] text-center">
+        Shopping Cart Detail
+      </h1>
       <div className="px-4 sm:px-20 lg:px-64">
         {listProducts.map((item, index) => {
           return (
             <div key={index}>
-              <CardCheckout remove={() => handleDeleteProduct(item)} name={item.name} price={item.price} foto={item.foto} />
+              <CardCheckout
+                remove={() => handleDeleteProduct(item)}
+                name={item.name}
+                price={item.price}
+                foto={item.foto}
+              />
             </div>
           );
         })}
-        <Ordersummary totalProducts={totalProducts} totalPrice={totalPrice} toCheckoutPage={(value) => toCheckoutPage(value)} />
+        <Ordersummary
+          totalProducts={totalProducts}
+          totalPrice={totalPrice}
+          toCheckoutPage={(value) => toCheckoutPage(value)}
+        />
       </div>
-      <div className='mt-36'>
+      <div className="mt-36">
         <Footer />
       </div>
     </div>
