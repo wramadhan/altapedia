@@ -35,7 +35,7 @@ const Navbar = () => {
             </a>
           </h2>
           <h2 className="font-medium text-lg text-[#1B345F]">
-          <a
+            <a
               href="https://api.whatsapp.com/send/?phone=6281230055223&text=Hallo+Alterra+Academy%2C+Saya+ingin+bertanya+terkait+siswa+anda&type=phone_number&app_absent=0"
               target="_blank"
               rel="noreferrer"

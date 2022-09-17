@@ -1,13 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardMyproduct from "../components/CardMyproduct";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { IoIosAdd, IoIosArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
 const MyProduct = () => {
+  const [datas, setDatas] = useState([])
+  const [cookies, removeCookie] = useCookies();
   const navigate = useNavigate();
+
   const toAddProductPage = () => {
     navigate("/addproduct");
+  };
+  const toEditProduct = (item) => {
+    navigate(`/myproduct/${item.ID}`);
+  };
+  useEffect(() => {
+    getMyProduct();
+  }, []);
+
+  const getMyProduct = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${cookies.tokenUser}`);
+
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    fetch("http://35.162.202.237:80/profile/product?page=1", requestOptions)
+      .then(response => response.text())
+      .then(result => setDatas(JSON.parse(result).Data))
+      .catch(error => console.log('error', error));
+  };
+
+  const deleteProduct = (item) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${cookies.tokenUser}`);
+
+    var requestOptions = {
+      method: 'DELETE',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    fetch(`http://35.162.202.237:80/product/${item.ID}`, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result)
+        getMyProduct();
+      })
+      .catch(error => console.log('error', error));
   };
   const toHomePage = () => {
     navigate("/home");
@@ -37,7 +83,19 @@ const MyProduct = () => {
             Add Product
           </button>
         </div>
-        <CardMyproduct />
+        <div className="grid grid-cols-4 gap-4">
+          {datas ? datas.map((item, index) => {
+            return (
+              <div key={index}>
+                <CardMyproduct
+                  Name={item.Name} Price={item.Price} Foto={item.Foto}
+                  klik={() => deleteProduct(item)}
+                  edit={() => toEditProduct(item)}
+                />
+              </div>
+            );
+          }) : <></>}
+        </div>
       </div>
       <Footer />
     </div>

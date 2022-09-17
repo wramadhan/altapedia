@@ -8,43 +8,39 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [tokenUser, setTokenUser] = useCookies();
   const [password, setPassword] = useState("");
+  const [cookies, setCookies] = useCookies();
 
-  const handleLogin = () => {
-    postLogin();
-    // let savePass = window.confirm('Are you want to save your id and password?');
-    // if (savePass === true) {
-    //   alert('id and password saved')
-    // }
-  };
 
   const toLogin = (item) => {
-    navigate(`/home`);
+    item ? navigate(`/home`) : navigate(`/`) && alert('id atau password yang anda masukkan salah');
   };
 
   const postLogin = () => {
-    var axios = require("axios");
-    var data = JSON.stringify({
-      email: email,
-      password: password,
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      "email": email,
+      "password": password
     });
 
-    var config = {
-      method: "post",
-      url: "https://virtserver.swaggerhub.com/nawihusen/GroupProject/1.0.0/login",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
     };
 
-    axios(config)
-      .then(function (response) {
-        // console.log(response.data.data.token);
-        toLogin();
-        setTokenUser("tokenUser", response.data.data.token, { path: "/" });
+    fetch("http://35.162.202.237:80/login", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        // console.log(JSON.parse(result))
+        setTokenUser("tokenUser", JSON.parse(result).Data, { path: "/" });
+        toLogin(JSON.parse(result).Data)
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(error => {
+        console.log(JSON.parse(error).Data.Keterangan)
+        alert('error', error)
       });
   };
   const handleEmail = (event) => {
@@ -96,17 +92,17 @@ const Login = () => {
 
         <button
           className="text-lg font-medium text-white w-full bg-[#F7731C] h-14 rounded-md mt-5"
-          onClick={() => handleLogin()}
+          onClick={() => postLogin()}
         >
           Sign In
         </button>
 
         <button
-            className="mt-5 text-lg font-medium text-[#1B345F] w-full bg-[#DBE5FA] h-14 rounded-md"
-            onClick={() => handleRegister()}
-          >
-            Create New Account
-          </button>
+          className="mt-5 text-lg font-medium text-[#1B345F] w-full bg-[#DBE5FA] h-14 rounded-md"
+          onClick={() => handleRegister()}
+        >
+          Create New Account
+        </button>
       </div>
     </div>
   );

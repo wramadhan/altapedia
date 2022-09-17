@@ -3,12 +3,17 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import image from "../images/productclothes.png";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
 const EditProduct = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState();
   const [foto, setFoto] = useState("");
   const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState();
+  const [categoryid, setCategoryid] = useState();
+  const [cookies, removeCookie] = useCookies();
 
   const handleEditProduct = () => {
     var axios = require("axios");
@@ -57,12 +62,18 @@ const EditProduct = () => {
   const editDescription = (event) => {
     setDescription(event.target.value);
   };
+  const addCategoryID = (event) => {
+    setCategoryid(event.target.value);
+  };
+  const addQuantity = (event) => {
+    setQuantity(event.target.value);
+  };
   return (
     <div>
       <Navbar />
       <div className="mb-44">
         <h1 className="text-center mx-auto font-bold text-4xl text-[#1B345F] mt-20 mb-14">
-        My Product Edit
+          My Product Edit
         </h1>
         <div className="md:flex md:justify-around sm:mr-4 ">
           <div className=" mx-4">
@@ -104,6 +115,31 @@ const EditProduct = () => {
             <p className="text-xs text-[#CCCCCC] mb-8">
               Set the minimum amount to buy for this product
             </p>
+            <h3 className="text-xl  font-medium text-[#1B345F] mb-6">
+              Quantity
+            </h3>
+            <input
+              className="w-full h-10 sm:w-[522px] sm:h-14 border border-[#DBE5FA] rounded-lg pl-2"
+              type="number"
+              placeholder="Enter Quantity"
+              onChange={addQuantity}
+            />
+            <p className="text-xs text-[#CCCCCC] mb-8">
+              Set the stock available for this product
+            </p>
+
+            <h3 className="text-xl  font-medium text-[#1B345F] mb-6">
+              Product Category ID
+            </h3>
+            <input
+              className="w-full h-10 sm:w-[522px] sm:h-14 border border-[#DBE5FA] rounded-lg pl-2"
+              type="number"
+              placeholder="Enter Product Category ID"
+              onChange={addCategoryID}
+            />
+            <p className="text-xs text-[#CCCCCC] mb-8">
+              <span className="text-[#F7731C]">*</span>Please set the Category ID for this product. "1" for All Product, "2" for Men Product, "3" for Women Product, "4" for Accesories
+            </p>
           </div>
           <div className="ml-4">
             <h3 className="text-xl font-medium text-[#1B345F] mb-6 text-center sm:text-left">
@@ -117,7 +153,7 @@ const EditProduct = () => {
                 <input
                   type="file"
                   className="w-full h-full"
-                  onChange={editFoto}
+                  onChange={edit}
                 />
               </div>
             </div>
