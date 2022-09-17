@@ -1,3 +1,5 @@
+<h1><b>Untuk sementara belum di merge, untuk progress terbaru silahkan lihat di branch consumeAPI</b></h1><br />
+
 <h1><b>Hi Github, nice to meet you :)</b></h1><br />
 
 <h2>Kandungan dalam repo<h2>
